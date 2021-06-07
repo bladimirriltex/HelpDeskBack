@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Tipo_Incidente extends Model
 {
     use HasFactory;
+
+    protected $filliable = [
+        'Nombre',
+        'Descripcion'
+    ];
 }

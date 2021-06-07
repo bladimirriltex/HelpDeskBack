@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Usuario_Soporte extends Model
 {
     use HasFactory;
+
+    protected $filliable = [
+        'Nombre',
+        'Apellido',
+        'login',
+        'Id_Cargo'
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 }

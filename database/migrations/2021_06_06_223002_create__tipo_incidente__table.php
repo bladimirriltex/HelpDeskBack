@@ -15,6 +15,8 @@ class CreateTipoIncidenteTable extends Migration
     {
         Schema::create('Tipo_Incidente', function (Blueprint $table) {
             $table->id();
+            $table->string('Nombre')->unique()->nullable();
+            $table->text('Descripcion')->nullable();
             $table->timestamps();
         });
     }

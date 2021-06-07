@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Nivel_Riesgo extends Model
 {
     use HasFactory;
+
+    protected $filliable = [
+        'Nombre',
+        'Descripcion'
+    ];
 }

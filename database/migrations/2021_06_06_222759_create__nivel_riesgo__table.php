@@ -15,6 +15,8 @@ class CreateNivelRiesgoTable extends Migration
     {
         Schema::create('Nivel_Riesgo', function (Blueprint $table) {
             $table->id();
+            $table->string('Nombre')->unique()->nullable();
+            $table->text('Descripcion')->nullable();
             $table->timestamps();
         });
     }
