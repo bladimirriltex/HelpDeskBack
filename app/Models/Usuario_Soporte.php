@@ -4,20 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class Usuario_Soporte extends Model
 {
-    use HasFactory;
+    use HasFactory, Notifiable, HasApiTokens;
 
-    protected $filliable = [
+    protected $fillable  = [
         'Nombre',
         'Apellido',
+        'Id_Cargo',
         'login',
-        'Id_Cargo'
+        'password'
     ];
 
     protected $hidden = [
-        'password',
+
         'remember_token',
     ];
 }
