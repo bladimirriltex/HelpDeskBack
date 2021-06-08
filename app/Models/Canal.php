@@ -9,8 +9,11 @@ class Canal extends Model
 {
     use HasFactory;
 
-    protected $filliable = [
-        'Nombre',
+    protected $table = 'canal';
+
+    protected $fillable = [
+        'Nombre', 
         'Descripcion'
     ];
+
 }
