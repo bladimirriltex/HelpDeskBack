@@ -9,7 +9,7 @@ class Tipo_Incidente extends Model
 {
     use HasFactory;
 
-    protected $filliable = [
+    protected $fillable = [
         'Nombre',
         'Descripcion'
     ];

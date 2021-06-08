@@ -9,7 +9,7 @@ class Nivel_Riesgo extends Model
 {
     use HasFactory;
 
-    protected $filliable = [
+    protected $fillable = [
         'Nombre',
         'Descripcion'
     ];

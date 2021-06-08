@@ -16,4 +16,6 @@ class Canal extends Model
         'Descripcion'
     ];
 
+    
+
 }

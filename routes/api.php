@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CanalController as Canal;
+use App\Http\Controllers\CargoController as Cargo;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,7 @@ Route::middleware('auth::sanctum')->group(function(){
 });
 
 Route::apiResource('canal', Canal::class)
+    ->only(['index', 'store', 'show', 'update', 'destroy']);
+
+Route::apiResource('cargo', Cargo::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);

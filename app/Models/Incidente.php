@@ -9,7 +9,7 @@ class Incidente extends Model
 {
     use HasFactory;
 
-    protected $filliable = [
+    protected $fillable = [
         'Nombre',
         'Fecha_Inicio',
         'Fecha_Fin',

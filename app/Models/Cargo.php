@@ -9,7 +9,9 @@ class Cargo extends Model
 {
     use HasFactory;
 
-    protected $filliable = [
+    protected $table = 'cargo';
+
+    protected $fillable = [
         'Nombre',
         'Descripcion'
     ];

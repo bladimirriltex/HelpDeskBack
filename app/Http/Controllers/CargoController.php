@@ -2,48 +2,49 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Canal;
+use App\Models\Cargo;
 use Illuminate\Http\Request;
 
-use App\Http\Resources\CanalResource;
+use App\Http\Resources\CargoResource;
 
-class CanalController extends Controller
+class CargoController extends Controller
 {
+
     public function index()
     {
-        return CanalResource::collection(Canal::latest()->paginate());
+        return CargoResource::collection(Cargo::latest()->paginate());
     }
 
     public function store(Request $request)
     {
-        $canal = $request->all();
+        $cargo = $request->all();
 
-        Canal::create($canal);
+        Cargo::create($cargo);
         return response()->json([
             'res' => true,
             'message' =>'Registro creado Correctamente'
         ],200);
     }
 
-    public function show(Canal $canal)
+    public function show(Cargo $cargo)
     {
-        return new CanalResource($canal);
+        return new CargoResource($cargo);
     }
 
-    public function update(Request $request, Canal $canal)
+    public function update(Request $request, Cargo $cargo)
     {
         $datos = $request->all();
 
-        $canal->update($datos);
+        $cargo->update($datos);
         return response()->json([
             'res' => true,
             'message' =>'Registro actualizado Correctamente'
         ],200);
     }
 
-    public function destroy(Canal $canal)
+    public function destroy(Cargo $cargo)
     {
-        $canal->delete();
+        $cargo->delete();
 
         return response()->json([
             'message' => 'Success'
