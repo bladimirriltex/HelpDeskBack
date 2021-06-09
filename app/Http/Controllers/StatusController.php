@@ -6,6 +6,7 @@ use App\Models\Status;
 use Illuminate\Http\Request;
 
 use App\Http\Resources\StatusResource;
+use Exception;
 
 class StatusController extends Controller
 {
@@ -16,13 +17,25 @@ class StatusController extends Controller
 
     public function store(Request $request)
     {
-        $status = $request->all();
+        try
+        {
+            $status = $request->all();
+            Status::create($status);
 
-        Status::create($status);
-        return response()->json([
-            'res' => true,
-            'message' =>'Registro creado Correctamente'
-        ],200);
+            return response()->json([
+                'res' => true,
+                'message' =>'Exito'
+            ],200);
+
+
+        }
+        catch(Exception $e)
+        {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al crear el registro'
+            ],400);
+        }   
     }
 
     public function show(Status $status)
