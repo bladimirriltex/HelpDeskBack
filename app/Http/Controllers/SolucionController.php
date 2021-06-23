@@ -6,6 +6,7 @@ use App\Models\Solucion;
 use Illuminate\Http\Request;
 
 use App\Http\Resources\SolucionResource;
+use Exception;
 
 class SolucionController extends Controller
 {
@@ -16,13 +17,21 @@ class SolucionController extends Controller
 
     public function store(Request $request)
     {
-        $solucion = $request->all();
+        try{
+            $solucion = $request->all();
+            Solucion::create($solucion);
 
-        Solucion::create($solucion);
-        return response()->json([
-            'res' => true,
-            'message' =>'Registro creado Correctamente'
-        ],200);
+            return response()->json([
+                'res' => true,
+                'message' =>'Registro creado Correctamente'
+            ],200);
+
+        }catch(Exception $e){
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al crear el registro'
+            ],400);
+        }
     }
 
     public function show(Solucion $solucion)
@@ -32,21 +41,36 @@ class SolucionController extends Controller
 
     public function update(Request $request, Solucion $solucion)
     {
-        $datos = $request->all();
+        try {
+            $datos = $request->all();
 
-        $solucion->update($datos);
-        return response()->json([
-            'res' => true,
-            'message' =>'Registro actualizado Correctamente'
-        ],200);
+            $solucion->update($datos);
+            return response()->json([
+                'res' => true,
+                'message' =>'Registro actualizado Correctamente'
+            ],200);
+        } catch (Exception $e) {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al actualizar el registro'
+            ],400);
+        }
     }
 
     public function destroy(Solucion $solucion)
     {
-        $solucion->delete();
+        try {
+            $solucion->delete();
 
-        return response()->json([
-            'message' => 'Success'
-        ]);
+            return response()->json([
+                'message' => 'Success'
+            ],200);
+        } catch (Exception $e) {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al eliminar el registro'
+            ],400);
+        }
+
     }
 }

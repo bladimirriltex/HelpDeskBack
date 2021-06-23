@@ -26,8 +26,6 @@ class StatusController extends Controller
                 'res' => true,
                 'message' =>'Exito'
             ],200);
-
-
         }
         catch(Exception $e)
         {
@@ -35,7 +33,7 @@ class StatusController extends Controller
                 'res' => false,
                 'message' =>'Error al crear el registro'
             ],400);
-        }   
+        }
     }
 
     public function show(Status $status)
@@ -45,21 +43,36 @@ class StatusController extends Controller
 
     public function update(Request $request, Status $status)
     {
-        $datos = $request->all();
+        try {
+            $datos = $request->all();
 
-        $status->update($datos);
-        return response()->json([
-            'res' => true,
-            'message' =>'Registro actualizado Correctamente'
-        ],200);
+            $status->update($datos);
+            return response()->json([
+                'res' => true,
+                'message' =>'Registro actualizado Correctamente'
+            ],200);
+        } catch (Exception $e) {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al actualizar el registro'
+            ],400);
+        }
     }
 
     public function destroy(Status $status)
     {
-        $status->delete();
+        try {
+            $status->delete();
 
-        return response()->json([
-            'message' => 'Success'
-        ]);
+            return response()->json([
+                'message' => 'Success'
+            ],200);
+        } catch (Exception $e) {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al eliminar el registro'
+            ],400);
+        }
+
     }
 }
