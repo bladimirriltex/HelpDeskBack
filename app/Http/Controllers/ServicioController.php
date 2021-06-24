@@ -6,23 +6,34 @@ use App\Models\Servicio;
 use Illuminate\Http\Request;
 
 use App\Http\Resources\ServicioResource;
+use Exception;
 
 class ServicioController extends Controller
 {
     public function index()
     {
-        return ServicioResource::collection(Servicio::latest()->paginate());
+        return ServicioResource::collection(Servicio::all());
     }
 
     public function store(Request $request)
     {
-        $servicio = $request->all();
+        try
+        {
+            $servicio = $request->all();
 
-        Servicio::create($servicio);
-        return response()->json([
-            'res' => true,
-            'message' =>'Registro creado Correctamente'
-        ],200);
+            Servicio::create($servicio);
+            return response()->json([
+                'res' => true,
+                'message' =>'Registro creado Correctamente'
+            ],200);
+        }
+        catch(Exception $e)
+        {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al crear el registro'
+            ],400);
+        }
     }
 
     public function show(Servicio $servicio)
@@ -32,21 +43,40 @@ class ServicioController extends Controller
 
     public function update(Request $request, Servicio $servicio)
     {
-        $datos = $request->all();
+        try
+        {
+            $datos = $request->all();
 
-        $servicio->update($datos);
-        return response()->json([
-            'res' => true,
-            'message' =>'Registro actualizado Correctamente'
-        ],200);
+            $servicio->update($datos);
+            return response()->json([
+                'res' => true,
+                'message' =>'Registro actualizado Correctamente'
+            ],200);
+        }
+        catch (Exception $e) {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al actualizar el registro'
+            ],400);
+        }
+        
     }
 
     public function destroy(Servicio $servicio)
     {
-        $servicio->delete();
+        try
+        {
+            $servicio->delete();
 
-        return response()->json([
-            'message' => 'Success'
-        ]);
+            return response()->json([
+                'message' => 'Success'
+            ]);
+        }
+        catch (Exception $e) {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al eliminar el registro'
+            ],400);
+        }
     }
 }

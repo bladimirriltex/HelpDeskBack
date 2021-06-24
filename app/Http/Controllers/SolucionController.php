@@ -12,7 +12,7 @@ class SolucionController extends Controller
 {
     public function index()
     {
-        return SolucionResource::collection(Solucion::latest()->paginate());
+        return SolucionResource::collection(Solucion::all());
     }
 
     public function store(Request $request)

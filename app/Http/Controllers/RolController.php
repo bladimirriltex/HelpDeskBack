@@ -6,23 +6,35 @@ use App\Models\Rol;
 use Illuminate\Http\Request;
 
 use App\Http\Resources\RolResource;
+use Exception;
 
 class RolController extends Controller
 {
     public function index()
     {
-        return RolResource::collection(Rol::latest()->paginate());
+        return RolResource::collection(Rol::all());
     }
 
     public function store(Request $request)
     {
-        $rol = $request->all();
+        try
+        {
+            $rol = $request->all();
 
-        Rol::create($rol);
-        return response()->json([
-            'res' => true,
-            'message' =>'Registro creado Correctamente'
-        ],200);
+            Rol::create($rol);
+            return response()->json([
+                'res' => true,
+                'message' =>'Registro creado Correctamente'
+            ],200);
+        }
+        catch(Exception $e)
+        {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al crear el registro'
+            ],400);
+        }
+        
     }
 
     public function show(Rol $rol)
@@ -32,21 +44,39 @@ class RolController extends Controller
 
     public function update(Request $request, Rol $rol)
     {
-        $datos = $request->all();
+        try
+        {
+            $datos = $request->all();
 
-        $rol->update($datos);
-        return response()->json([
-            'res' => true,
-            'message' =>'Registro actualizado Correctamente'
-        ],200);
+            $rol->update($datos);
+            return response()->json([
+                'res' => true,
+                'message' =>'Registro actualizado Correctamente'
+            ],200);
+        }
+        catch (Exception $e) {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al actualizar el registro'
+            ],400);
+        } 
     }
 
     public function destroy(Rol $rol)
     {
-        $rol->delete();
+        try
+        {
+            $rol->delete();
 
-        return response()->json([
-            'message' => 'Success'
-        ]);
+            return response()->json([
+                'message' => 'Success'
+            ]);
+        }
+        catch (Exception $e) {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al eliminar el registro'
+            ],400);
+        }
     }
 }
