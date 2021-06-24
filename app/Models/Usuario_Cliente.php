@@ -15,6 +15,7 @@ class Usuario_Cliente extends Model
         'Nombre',
         'Apellidos',
         'Email',
-        'Id_Rol'
+        'Id_Rol',
+        'Id_Cuenta'
     ];
 }
