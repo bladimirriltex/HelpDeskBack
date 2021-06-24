@@ -24,12 +24,11 @@ use App\Http\Controllers\Nivel_RiesgoController as NivelRiesgo;
 |
 */
 
-
-Route::post('register_usuario_soporte', [\App\Http\Controllers\AuthController::class, 'register_usuario_soporte']);
+Route::post('register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
 
-Route::middleware('auth::sanctum')->group(function(){
-    Route::get('usuario_soporte', [\App\Http\Controllers\AuthController::class, 'usuario_soporte']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('user', [\App\Http\Controllers\AuthController::class, 'user']);
     Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 });
 
@@ -38,7 +37,7 @@ Route::apiResource('canal', Canal::class)
 
 Route::apiResource('cargo', Cargo::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
-    
+
 Route::apiResource('incidente', Incidente::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
