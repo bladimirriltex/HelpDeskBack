@@ -12,7 +12,7 @@ class StatusController extends Controller
 {
     public function index()
     {
-        return StatusResource::collection(Status::latest()->paginate());
+        return StatusResource::collection(Status::all());
     }
 
     public function store(Request $request)

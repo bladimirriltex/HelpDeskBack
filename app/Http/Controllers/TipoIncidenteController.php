@@ -12,7 +12,7 @@ class TipoIncidenteController extends Controller
 {
     public function index()
     {
-        return TipoIncidenteResource::collection(Tipo_Incidente::latest()->paginate());
+        return TipoIncidenteResource::collection(Tipo_Incidente::all());
     }
 
     public function store(Request $request)

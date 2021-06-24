@@ -6,24 +6,36 @@ use App\Models\Cargo;
 use Illuminate\Http\Request;
 
 use App\Http\Resources\CargoResource;
+use Exception;
 
 class CargoController extends Controller
 {
 
     public function index()
     {
-        return CargoResource::collection(Cargo::latest()->paginate());
+        return CargoResource::collection(Cargo::all());
     }
 
     public function store(Request $request)
     {
-        $cargo = $request->all();
+        try
+        {
+            $cargo = $request->all();
 
-        Cargo::create($cargo);
-        return response()->json([
-            'res' => true,
-            'message' =>'Registro creado Correctamente'
-        ],200);
+            Cargo::create($cargo);
+            return response()->json([
+                'res' => true,
+                'message' =>'Registro creado Correctamente'
+            ],200);
+        }
+        catch(Exception $e)
+        {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al crear el registro'
+            ],400);
+        }
+        
     }
 
     public function show(Cargo $cargo)
@@ -33,21 +45,41 @@ class CargoController extends Controller
 
     public function update(Request $request, Cargo $cargo)
     {
-        $datos = $request->all();
+        try
+        {
+            $datos = $request->all();
 
-        $cargo->update($datos);
-        return response()->json([
-            'res' => true,
-            'message' =>'Registro actualizado Correctamente'
-        ],200);
+            $cargo->update($datos);
+            return response()->json([
+                'res' => true,
+                'message' =>'Registro actualizado Correctamente'
+            ],200);
+        }
+        catch (Exception $e) {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al actualizar el registro'
+            ],400);
+        }
+        
     }
 
     public function destroy(Cargo $cargo)
     {
-        $cargo->delete();
+        try
+        {
+            $cargo->delete();
 
-        return response()->json([
-            'message' => 'Success'
-        ]);
+            return response()->json([
+                'message' => 'Success'
+            ]);
+        }
+        catch (Exception $e) {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error al eliminar el registro'
+            ],400);
+        }
+        
     }
 }
