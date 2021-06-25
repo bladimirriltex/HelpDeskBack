@@ -14,6 +14,10 @@ class Nivel_RiesgoResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'Nombre' => $this->Nombre,
+            'Descripcion' => $this->Descripcion,
+        ];
     }
 }

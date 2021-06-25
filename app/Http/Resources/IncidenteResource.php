@@ -22,13 +22,13 @@ class IncidenteResource extends JsonResource
             'Descripcion' => $this-> Descripcion,
             'Respuesta' => $this-> Respuesta,
             'Archivo' => $this-> Archivo,
-            'Id_Servicio' => $this-> Id_Servicio,
-            'Id_TipoIncidente' => $this-> Id_TipoIncidente,
-            'Id_Canal' => $this-> Id_Canal,
-            'Id_NivelRiesgo' => $this-> Id_NivelRiesgo,
-            'Id_Status' => $this-> Id_Status,
-            'Id_UsuarioCliente' => $this-> Id_UsuarioCliente,
-            'Id_UsuarioSoporte' => $this-> Id_UsuarioSoporte
+            'Servicio' => $this-> servicio,
+            'Tipo_Incidente' => $this-> tipo_incidente,
+            'Canal' => $this-> canal,
+            'Nivel_Riesgo' => $this-> nivel_riesgo,
+            'Status' => $this-> status,
+            'Usuario_Cliente' => $this-> usuario_cliente,
+            'Usuario_Soporte' => $this-> usuario_soporte
         ];
     }
 }

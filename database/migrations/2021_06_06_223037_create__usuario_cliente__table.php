@@ -17,11 +17,13 @@ class CreateUsuarioClienteTable extends Migration
             $table->id();
             $table->string('Nombre');
             $table->string('Apellido');
-            $table->string('Email');
+            $table->string('Email')->unique();
             $table->unsignedBigInteger('Id_Rol');
+            $table->unsignedBigInteger('Id_User');
             $table->timestamps();
 
             $table->foreign('Id_Rol')->references('id')->on('Rol');
+            $table->foreign('Id_User')->references('id')->on('users');
         });
     }
 

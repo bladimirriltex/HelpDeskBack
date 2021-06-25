@@ -11,6 +11,7 @@ use App\Http\Controllers\SolucionController as Solucion;
 use App\Http\Controllers\StatusController as Status;
 use App\Http\Controllers\TipoIncidenteController as TipoIncidente;
 use App\Http\Controllers\UsuarioClienteController as UsuarioCliente;
+use App\Http\Controllers\UsuarioSoporteController as UsuarioSoporte;
 use App\Http\Controllers\Nivel_RiesgoController as NivelRiesgo;
 
 /*
@@ -54,6 +55,9 @@ Route::apiResource('tipo_incidente', TipoIncidente::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::apiResource('usuario_cliente', UsuarioCliente::class)
+    ->only(['index', 'store', 'show', 'update', 'destroy']);
+
+Route::apiResource('usuario_cliente', UsuarioSoporte::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::apiResource('nivel_riesgo', NivelRiesgo::class)

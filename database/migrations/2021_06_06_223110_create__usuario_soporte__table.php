@@ -17,12 +17,13 @@ class CreateUsuarioSoporteTable extends Migration
             $table->id();
             $table->string('Nombre');
             $table->string('Apellido');
-            $table->string('Email');
-            $table->rememberToken();
-            $table->unsignedBigInteger('Id_Cargo')->nullable();
+            $table->string('Email')->unique();
+            $table->unsignedBigInteger('Id_Cargo');
+            $table->unsignedBigInteger('Id_User');
             $table->timestamps();
 
             $table->foreign('Id_Cargo')->references('id')->on('Cargo');
+            $table->foreign('Id_User')->references('id')->on('users');
         });
     }
 

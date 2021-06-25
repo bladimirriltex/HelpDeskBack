@@ -19,7 +19,7 @@ class SolucionResource extends JsonResource
             'Nombre' => $this->Nombre,
             'Descripcion' => $this->Descripcion,
             'Fecha' => $this->Fecha,
-            'Id_Incidente' => $this->Id_Incidente
+            'Incidente' => $this->incidente
         ];
     }
 }

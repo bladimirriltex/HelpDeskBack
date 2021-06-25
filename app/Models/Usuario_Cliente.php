@@ -16,6 +16,11 @@ class Usuario_Cliente extends Model
         'Apellidos',
         'Email',
         'Id_Rol',
-        'Id_Cuenta'
+        'Id_User'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'Id_User', 'id');
+    }
 }

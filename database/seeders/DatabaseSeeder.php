@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Canal;
 use App\Models\Cargo;
+use App\Models\Nivel_Riesgo;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,5 +18,6 @@ class DatabaseSeeder extends Seeder
     {
         Canal::factory(10)->create();
         Cargo::factory(10)->create();
+        Nivel_Riesgo::factory(10)->create();
     }
 }

@@ -20,6 +20,14 @@ class Usuario_Soporte extends Authenticatable
         'Apellido',
         'Email',
         'Id_Cargo',
+        'Id_User'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'Id_User', 'id');
+    }
+
+
 
 }
