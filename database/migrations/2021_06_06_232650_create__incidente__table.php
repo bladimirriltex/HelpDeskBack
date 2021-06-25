@@ -15,20 +15,20 @@ class CreateIncidenteTable extends Migration
     {
         Schema::create('Incidente', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre')->nullable();
-            $table->dateTime('Fecha_Inicio')->nullable();
-            $table->dateTime('Fecha_Fin')->nullable();
-            $table->text('Descripcion')->nullable();
-            $table->text('Respuesta')->nullable();
+            $table->string('Nombre');
+            $table->dateTime('Fecha_Inicio');
+            $table->dateTime('Fecha_Fin');
+            $table->text('Descripcion');
+            $table->text('Respuesta');
             $table->string('Archivo');
 
-            $table->unsignedBigInteger('Id_Servicio')->nullable();
-            $table->unsignedBigInteger('Id_TipoIncidente')->nullable();
-            $table->unsignedBigInteger('Id_Canal')->nullable();
-            $table->unsignedBigInteger('Id_NivelRiesgo')->nullable();
-            $table->unsignedBigInteger('Id_Status')->nullable();
-            $table->unsignedBigInteger('Id_UsuarioCliente')->nullable();
-            $table->unsignedBigInteger('Id_UsuarioSoporte')->nullable();
+            $table->unsignedBigInteger('Id_Servicio');
+            $table->unsignedBigInteger('Id_TipoIncidente');
+            $table->unsignedBigInteger('Id_Canal');
+            $table->unsignedBigInteger('Id_NivelRiesgo');
+            $table->unsignedBigInteger('Id_Status');
+            $table->unsignedBigInteger('Id_UsuarioCliente');
+            $table->unsignedBigInteger('Id_UsuarioSoporte');
 
             $table->timestamps();
 

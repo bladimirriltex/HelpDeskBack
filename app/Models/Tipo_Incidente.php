@@ -11,8 +11,15 @@ class Tipo_Incidente extends Model
 
     protected $table = 'tipo_incidente';
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'Nombre',
         'Descripcion'
     ];
+
+    public function incidentes()
+    {
+        return $this->hasMany(Incidente::class, 'Id_TipoIncidente' , 'id');
+    }
 }

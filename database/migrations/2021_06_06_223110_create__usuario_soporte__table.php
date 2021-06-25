@@ -15,10 +15,9 @@ class CreateUsuarioSoporteTable extends Migration
     {
         Schema::create('Usuario_Soporte', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre')->nullable();
-            $table->string('Apellido')->nullable();
-            $table->string('login')->nullable();
-            $table->string('password')->nullable();
+            $table->string('Nombre');
+            $table->string('Apellido');
+            $table->string('Email');
             $table->rememberToken();
             $table->unsignedBigInteger('Id_Cargo')->nullable();
             $table->timestamps();

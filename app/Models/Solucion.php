@@ -17,4 +17,9 @@ class Solucion extends Model
         'Fecha',
         'Id_Incidente'
     ];
+
+    public function incidente()
+    {
+        return $this->belongsTo(Incidente::class, 'Id_Incidente', 'id');
+    }
 }

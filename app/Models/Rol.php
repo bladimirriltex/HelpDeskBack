@@ -11,8 +11,15 @@ class Rol extends Model
 
     protected $table = 'rol';
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'Nombre',
         'Descripcion'
     ];
+
+    public function usuarios_clientes()
+    {
+        return $this->hasMany(Usuario_Cliente::class, 'Id_Rol' , 'id');
+    }
 }

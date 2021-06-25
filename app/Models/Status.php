@@ -11,8 +11,15 @@ class Status extends Model
 
     protected $table = 'status';
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'Nombre',
         'Descripcion'
     ];
+
+    public function incidentes()
+    {
+        return $this->hasMany(Incidente::class, 'Id_Status' , 'id');
+    }
 }

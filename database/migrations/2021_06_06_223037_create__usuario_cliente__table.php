@@ -15,10 +15,10 @@ class CreateUsuarioClienteTable extends Migration
     {
         Schema::create('Usuario_Cliente', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre')->nullable();
-            $table->string('Apellido')->nullable();
-            $table->string('Email')->nullable();
-            $table->unsignedBigInteger('Id_Rol')->nullable();
+            $table->string('Nombre');
+            $table->string('Apellido');
+            $table->string('Email');
+            $table->unsignedBigInteger('Id_Rol');
             $table->timestamps();
 
             $table->foreign('Id_Rol')->references('id')->on('Rol');

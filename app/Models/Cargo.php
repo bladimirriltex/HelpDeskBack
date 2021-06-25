@@ -11,8 +11,17 @@ class Cargo extends Model
 
     protected $table = 'cargo';
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'Nombre',
         'Descripcion'
     ];
+
+    public function usuarios_soporte()
+    {
+        return $this->hasMany(Usuario_Soporte::class, 'Id_Cargo' , 'id');
+    }
+
+
 }
