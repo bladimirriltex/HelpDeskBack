@@ -13,6 +13,7 @@ use App\Http\Controllers\TipoIncidenteController as TipoIncidente;
 use App\Http\Controllers\UsuarioClienteController as UsuarioCliente;
 use App\Http\Controllers\UsuarioSoporteController as UsuarioSoporte;
 use App\Http\Controllers\Nivel_RiesgoController as NivelRiesgo;
+use Illuminate\Auth\AuthenticationException;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,13 @@ use App\Http\Controllers\Nivel_RiesgoController as NivelRiesgo;
 |
 */
 
-Route::get('user', [\App\Http\Controllers\AuthController::class, 'user']);
+
 Route::post('register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('user', [\App\Http\Controllers\AuthController::class, 'user']);
+});
 
 Route::apiResource('canal', Canal::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);

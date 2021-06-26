@@ -15,8 +15,8 @@ class User extends Authenticatable
 
 
     protected $fillable = [
-        'name',
-        'email',
+
+        'login',
         'password',
     ];
 
@@ -24,4 +24,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function usuarios_clientes()
+    {
+        return $this->hasMany(Usuario_Cliente::class, 'Id_User', 'id');
+    }
+
+    public function usuarios_soportes()
+    {
+        return $this->hasMany(Usuario_Soporte::class, 'Id_User', 'id');
+    }
 }
