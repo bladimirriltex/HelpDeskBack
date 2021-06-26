@@ -23,6 +23,11 @@ class Usuario_Soporte extends Authenticatable
         'Id_User'
     ];
 
+    public function cargo()
+    {
+        return $this->belongsTo(Cargo::class, 'Id_Cargo', 'id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'Id_User', 'id');

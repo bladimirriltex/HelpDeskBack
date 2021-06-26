@@ -53,7 +53,7 @@ Route::apiResource('tipo_incidente', TipoIncidente::class)
 Route::apiResource('usuario_cliente', UsuarioCliente::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
-Route::apiResource('usuario_cliente', UsuarioSoporte::class)
+Route::apiResource('usuario_soporte', UsuarioSoporte::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::apiResource('nivel_riesgo', NivelRiesgo::class)

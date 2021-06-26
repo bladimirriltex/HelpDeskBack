@@ -19,6 +19,11 @@ class Usuario_Cliente extends Model
         'Id_User'
     ];
 
+    public function rol()
+    {
+        return $this->belongsTo(Rol::class, 'Id_Rol', 'id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'Id_User', 'id');
