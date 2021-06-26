@@ -32,11 +32,22 @@ class AuthController extends Controller
         $cookie = cookie('jwt', $token, 60*24);
 
         return response([
-            'message'=> 'Success'
+            'message'=> $token
         ])->withCookie($cookie);
     }
+
     public function user()
     {
         return Auth::user();
     }
+
+    public function logout()
+    {
+        $cookie = Cookie::forget('jwt');
+
+        return response([
+            'message'=>'Success'
+        ])->withCookie($cookie);
+    }
+
 }
