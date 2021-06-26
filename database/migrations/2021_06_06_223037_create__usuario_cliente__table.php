@@ -19,7 +19,7 @@ class CreateUsuarioClienteTable extends Migration
             $table->string('Apellido');
             $table->string('Email')->unique();
             $table->unsignedBigInteger('Id_Rol');
-            $table->unsignedBigInteger('Id_User');
+            $table->unsignedBigInteger('Id_User')->nullable();
             $table->timestamps();
 
             $table->foreign('Id_Rol')->references('id')->on('Rol');

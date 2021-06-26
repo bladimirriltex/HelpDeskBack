@@ -19,7 +19,7 @@ class CreateUsuarioSoporteTable extends Migration
             $table->string('Apellido');
             $table->string('Email')->unique();
             $table->unsignedBigInteger('Id_Cargo');
-            $table->unsignedBigInteger('Id_User');
+            $table->unsignedBigInteger('Id_User')->nullable();
             $table->timestamps();
 
             $table->foreign('Id_Cargo')->references('id')->on('Cargo');

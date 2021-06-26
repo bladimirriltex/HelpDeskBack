@@ -17,10 +17,10 @@ class CreateIncidenteTable extends Migration
             $table->id();
             $table->string('Nombre');
             $table->dateTime('Fecha_Inicio');
-            $table->dateTime('Fecha_Fin');
+            $table->dateTime('Fecha_Fin')->nullable();
             $table->text('Descripcion');
-            $table->text('Respuesta');
-            $table->string('Archivo');
+            $table->text('Respuesta')->nullable();
+            $table->string('Archivo')->nullable();
 
             $table->unsignedBigInteger('Id_Servicio');
             $table->unsignedBigInteger('Id_TipoIncidente');

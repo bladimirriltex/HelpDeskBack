@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Usuario_Cliente;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UsuarioClienteFactory extends Factory
+class Usuario_ClienteFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Usuario_Cliente::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,10 @@ class UsuarioClienteFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'Nombre' => $this->faker->firstName,
+            'Apellido' => $this->faker->lastName,
+            'Email' => $this->faker->unique()->safeEmail,
+            'Id_Rol' => $this->faker->numberBetween(1, 4),
         ];
     }
 }

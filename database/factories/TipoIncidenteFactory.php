@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Tipo_Incidente;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TipoIncidenteFactory extends Factory
@@ -12,7 +12,7 @@ class TipoIncidenteFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Tipo_Incidente::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +23,7 @@ class TipoIncidenteFactory extends Factory
     {
         return [
             'Nombre' => $this->faker->sentence(),
-            'Descripcion' => $this->faker->text(1600)
+            'Descripcion' => $this->faker->text(500)
         ];
     }
 }

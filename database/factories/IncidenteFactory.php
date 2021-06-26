@@ -22,7 +22,16 @@ class IncidenteFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'Nombre' => $this->faker->sentence,
+            'Fecha_Inicio' => $this->faker->dateTimeThisMonth(),
+            'Descripcion' => $this->faker->text(1600),
+            'Id_Servicio' => $this->faker->numberBetween(1, 9),
+            'Id_TipoIncidente' => $this->faker->numberBetween(1, 2),
+            'Id_Canal' => $this->faker->numberBetween(1, 3),
+            'Id_NivelRiesgo' => $this->faker->numberBetween(1, 5),
+            'Id_Status' => $this->faker->numberBetween(1, 4),
+            'Id_UsuarioCliente' => $this->faker->numberBetween(1, 50),
+            'Id_UsuarioSoporte' => $this->faker->numberBetween(1, 3),
         ];
     }
 }

@@ -13,7 +13,7 @@ class Usuario_Cliente extends Model
 
     protected $fillable = [
         'Nombre',
-        'Apellidos',
+        'Apellido',
         'Email',
         'Id_Rol',
         'Id_User'

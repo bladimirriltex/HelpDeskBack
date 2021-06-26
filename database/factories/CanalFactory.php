@@ -23,7 +23,7 @@ class CanalFactory extends Factory
     {
         return [
             'Nombre' => $this->faker->sentence(),
-            'Descripcion' => $this->faker->text(1600)
+            'Descripcion' => $this->faker->text(500)
         ];
     }
 }
