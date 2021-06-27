@@ -13,6 +13,7 @@ use App\Http\Controllers\TipoIncidenteController as TipoIncidente;
 use App\Http\Controllers\UsuarioClienteController as UsuarioCliente;
 use App\Http\Controllers\UsuarioSoporteController as UsuarioSoporte;
 use App\Http\Controllers\Nivel_RiesgoController as NivelRiesgo;
+use App\Http\Controllers\UserController as User;
 use Illuminate\Auth\AuthenticationException;
 
 /*
@@ -29,11 +30,8 @@ use Illuminate\Auth\AuthenticationException;
 
 Route::post('register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
-Route::apiResource('user', User::class)
-    ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('user', [\App\Http\Controllers\AuthController::class, 'user']);
     Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 });
 
@@ -65,6 +63,9 @@ Route::apiResource('usuario_soporte', UsuarioSoporte::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::apiResource('nivel_riesgo', NivelRiesgo::class)
+    ->only(['index', 'store', 'show', 'update', 'destroy']);
+
+Route::apiResource('user', User::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 
