@@ -36,9 +36,9 @@ class UsuarioClienteController extends Controller
         }
     }
 
-    public function show(Usuario_Cliente $usuario_Cliente)
+    public function show(Usuario_Cliente $usuario_cliente)
     {
-        return new UsuarioClienteResource($usuario_Cliente);
+        return new UsuarioClienteResource($usuario_cliente);
     }
 
     public function update(Request $request, Usuario_Cliente $usuario_Cliente)

@@ -21,6 +21,7 @@ class UsuarioClienteResource extends JsonResource
             'Email' => $this->Email,
             'Rol' => $this->rol,
             'User' => $this->user,
+            'Incidentes' => $this->incidentes,
         ];
     }
 }

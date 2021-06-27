@@ -28,4 +28,9 @@ class Usuario_Cliente extends Model
     {
         return $this->belongsTo(User::class, 'Id_User', 'id');
     }
+
+    public function incidentes()
+    {
+        return $this->hasMany(Incidente::class, 'Id_UsuarioCliente', 'id');
+    }
 }
