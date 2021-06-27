@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Cookie;
 use Symfony\Component\HttpFoundation\Response;
-
+use App\Http\Resources\UserResource;
 use Exception;
 
 
@@ -34,7 +34,7 @@ class AuthController extends Controller
         $cookie = cookie('jwt', $token, 60*24);
 
         return response([
-            'message'=> $token
+            'message'=> $user
         ])->withCookie($cookie);
     }
 

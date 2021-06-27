@@ -29,6 +29,8 @@ use Illuminate\Auth\AuthenticationException;
 
 Route::post('register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
+Route::apiResource('user', User::class)
+    ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('user', [\App\Http\Controllers\AuthController::class, 'user']);
