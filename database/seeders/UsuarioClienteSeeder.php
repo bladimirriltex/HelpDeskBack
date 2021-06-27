@@ -14,6 +14,6 @@ class UsuarioClienteSeeder extends Seeder
      */
     public function run()
     {
-        Usuario_Cliente::factory(50)->create();
+        Usuario_Cliente::factory(5)->create();
     }
 }
