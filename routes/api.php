@@ -9,6 +9,7 @@ use App\Http\Controllers\IncidenteController as Incidente;
 use App\Http\Controllers\ServicioController as Servicio;
 use App\Http\Controllers\SolucionController as Solucion;
 use App\Http\Controllers\StatusController as Status;
+use App\Http\Controllers\RolController as Rol;
 use App\Http\Controllers\TipoIncidenteController as TipoIncidente;
 use App\Http\Controllers\UsuarioClienteController as UsuarioCliente;
 use App\Http\Controllers\UsuarioSoporteController as UsuarioSoporte;
@@ -28,7 +29,7 @@ use Illuminate\Auth\AuthenticationException;
 */
 
 
-Route::post('register', [\App\Http\Controllers\AuthController::class, 'register']);
+Route::post('user', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
@@ -39,6 +40,9 @@ Route::apiResource('canal', Canal::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::apiResource('cargo', Cargo::class)
+    ->only(['index', 'store', 'show', 'update', 'destroy']);
+
+Route::apiResource('rol', Rol::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::apiResource('incidente', Incidente::class)
@@ -66,6 +70,6 @@ Route::apiResource('nivel_riesgo', NivelRiesgo::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::apiResource('user', User::class)
-    ->only(['index', 'store', 'show', 'update', 'destroy']);
+    ->only(['index', 'show', 'update', 'destroy']);
 
 
