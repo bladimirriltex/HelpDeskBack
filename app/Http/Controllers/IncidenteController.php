@@ -21,6 +21,11 @@ class IncidenteController extends Controller
         {
             $incidente = $request->all();
 
+            if ($request->has('Archivo'))
+            {
+                $incidente['Archivo'] = $this->imagen($request->Archivo);
+            }
+
             Incidente::create($incidente);
             return response()->json([
                 'res' => true,
@@ -47,6 +52,11 @@ class IncidenteController extends Controller
         try
         {
             $datos = $request->all();
+
+            if ($request->has('Archivo'))
+            {
+                $incidente['Archivo'] = $this->imagen($request->Archivo);
+            }
 
             $incidente->update($datos);
             return response()->json([
@@ -78,5 +88,12 @@ class IncidenteController extends Controller
                 'message' =>'Error al eliminar el registro'
             ],400);
         }
+    }
+
+    private function imagen($file)
+    {
+        $nombrearchivo = time().".".$file->getClientOriginalExtension();
+        $file->move(public_path('imagenes'), $nombrearchivo);
+        return "/imagenes/".$nombrearchivo;
     }
 }
