@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Cookie;
 use Symfony\Component\HttpFoundation\Response;
 
+use Exception;
+
 
 class AuthController extends Controller
 {
@@ -38,7 +40,17 @@ class AuthController extends Controller
 
     public function user()
     {
-        return Auth::user();
+        try
+        {
+            return Auth::user();
+        }
+        catch(Exception $e)
+        {
+            return response()->json([
+                'res' => false,
+                'message' =>'Error.......'
+            ],401);
+        }
     }
 
     public function logout()
