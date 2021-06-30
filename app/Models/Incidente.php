@@ -14,7 +14,7 @@ class Incidente extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'Nombre',
+        'Nombresdas',
         'Fecha_Fin',
         'Descripcion',
         'Respuesta',
