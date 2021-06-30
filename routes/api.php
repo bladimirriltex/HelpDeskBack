@@ -36,6 +36,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 });
 
+Route::get('totalIncidentes', [\App\Http\Controllers\IncidenteController::class, 'totalIncidentes']);
+Route::get('sinresolverIncidentes', [\App\Http\Controllers\IncidenteController::class, 'sinresolverIncidentes']);
+Route::get('resueltosIncidentes', [\App\Http\Controllers\IncidenteController::class, 'resueltosIncidentes']);
+Route::get('deldiaIncidentes', [\App\Http\Controllers\IncidenteController::class, 'deldiaIncidentes']);
+
 Route::apiResource('canal', Canal::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 

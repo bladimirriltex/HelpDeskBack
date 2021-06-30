@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Incidente;
-use Illuminate\Http\Request;
-
-use App\Http\Resources\IncidenteResource;
 use Exception;
+use App\Models\Incidente;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Resources\IncidenteResource;
 
 class IncidenteController extends Controller
 {
@@ -40,7 +41,7 @@ class IncidenteController extends Controller
                 'e' => $e
             ],400);
         }
-        
+
     }
 
     public function show(Incidente $incidente)
@@ -96,5 +97,48 @@ class IncidenteController extends Controller
         $nombrearchivo = time().".".$file->getClientOriginalExtension();
         $file->move(public_path('imagenes'), $nombrearchivo);
         return "/imagenes/".$nombrearchivo;
+    }
+
+    public function totalIncidentes()
+    {
+        $incidentes = DB::table('incidente')
+             ->select(DB::raw('count(*) as totalIncidentes'))
+
+             ->get();
+
+             return $incidentes;
+    }
+
+    public function sinresolverIncidentes()
+    {
+        $incidentes = DB::table('incidente')
+             ->select(DB::raw('count(*) as sinresolverIncidentes'))
+             ->whereIn('Id_Status', [1, 2])
+
+             ->get();
+
+             return $incidentes;
+    }
+
+    public function resueltosIncidentes()
+    {
+        $incidentes = DB::table('incidente')
+             ->select(DB::raw('count(*) as resueltosIncidentes'))
+             ->where('Id_Status', '=', 4)
+
+             ->get();
+
+             return $incidentes;
+    }
+
+    public function deldiaIncidentes()
+    {
+        $incidentes = DB::table('incidente')
+             ->select(DB::raw('count(*) as deldiaIncidentes'))
+             ->whereDate('created_at', DB::raw('curdate()'))
+
+             ->get();
+
+             return $incidentes;
     }
 }
