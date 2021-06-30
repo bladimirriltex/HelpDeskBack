@@ -31,7 +31,8 @@ class IncidenteController extends Controller
         {
             return response()->json([
                 'res' => false,
-                'message' =>'Error al crear el registro'
+                'message' =>'Error al crear el registro',
+                'e' => $e
             ],400);
         }
         
