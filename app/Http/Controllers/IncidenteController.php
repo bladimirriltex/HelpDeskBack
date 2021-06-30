@@ -21,6 +21,11 @@ class IncidenteController extends Controller
         {
             $incidente = $request->all();
 
+            if ($request->has('Archivo'))
+            {
+                $incidente['Archivo'] = $this->imagen($request->Archivo);
+            }
+
             Incidente::create($incidente);
             return response()->json([
                 'res' => true,
@@ -48,6 +53,11 @@ class IncidenteController extends Controller
         try
         {
             $datos = $request->all();
+
+            if ($request->has('Archivo'))
+            {
+                $incidente['Archivo'] = $this->Archivo($request->Archivo);
+            }
 
             $incidente->update($datos);
             return response()->json([
