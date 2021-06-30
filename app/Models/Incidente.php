@@ -14,7 +14,7 @@ class Incidente extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'Nombres',
+        'Nombre',
         'Fecha_Fin',
         'Descripcion',
         'Respuesta',
@@ -26,6 +26,10 @@ class Incidente extends Model
         'Id_Status',
         'Id_UsuarioCliente',
         'Id_UsuarioSoporte'
+    ];
+
+    protected $casts = [
+        'created_at' => 'date:Y-m-d',
     ];
 
     public function servicio()

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use DateTime;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class IncidenteResource extends JsonResource
@@ -17,6 +18,7 @@ class IncidenteResource extends JsonResource
         return [
             'id' => $this->id,
             'Nombre' => $this->Nombre,
+            'Fecha_Inicio' => date('d M Y h:m:s' , strtotime($this->created_at)),
             'Fecha_Fin' => $this-> Fecha_Fin,
             'Descripcion' => $this-> Descripcion,
             'Respuesta' => $this-> Respuesta,
