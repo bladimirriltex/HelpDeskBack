@@ -15,7 +15,6 @@ class Incidente extends Model
 
     protected $fillable = [
         'Nombre',
-        'Fecha_Inicio',
         'Fecha_Fin',
         'Descripcion',
         'Respuesta',

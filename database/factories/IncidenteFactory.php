@@ -23,7 +23,6 @@ class IncidenteFactory extends Factory
     {
         return [
             'Nombre' => $this->faker->sentence,
-            'Fecha_Inicio' => $this->faker->dateTimeThisMonth(),
             'Descripcion' => $this->faker->text(1600),
             'Id_Servicio' => $this->faker->numberBetween(1, 9),
             'Id_TipoIncidente' => $this->faker->numberBetween(1, 2),

@@ -16,7 +16,6 @@ class CreateIncidenteTable extends Migration
         Schema::create('Incidente', function (Blueprint $table) {
             $table->id();
             $table->string('Nombre');
-            $table->dateTime('Fecha_Inicio');
             $table->dateTime('Fecha_Fin')->nullable();
             $table->text('Descripcion');
             $table->text('Respuesta')->nullable();

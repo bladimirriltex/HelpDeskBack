@@ -17,7 +17,6 @@ class IncidenteResource extends JsonResource
         return [
             'id' => $this->id,
             'Nombre' => $this->Nombre,
-            'Fecha_Inicio' => $this->Fecha_Inicio,
             'Fecha_Fin' => $this-> Fecha_Fin,
             'Descripcion' => $this-> Descripcion,
             'Respuesta' => $this-> Respuesta,
