@@ -22,4 +22,9 @@ class Servicio extends Model
     {
         return $this->hasMany(Incidente::class, 'Id_Servicio' , 'id');
     }
+
+    public function versiones()
+    {
+        return $this->hasMany(Version::class, 'id_servicio' , 'id');
+    }
 }

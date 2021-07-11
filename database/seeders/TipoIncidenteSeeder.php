@@ -15,11 +15,15 @@ class TipoIncidenteSeeder extends Seeder
     public function run()
     {
         Tipo_Incidente::create([
-            'Nombre' => 'Fisico',
+            'Nombre' => 'Hardware',
         ]);
 
         Tipo_Incidente::create([
-            'Nombre' => 'Virtual',
+            'Nombre' => 'Software',
+        ]);
+
+        Tipo_Incidente::create([
+            'Nombre' => 'Desconocido',
         ]);
     }
 }

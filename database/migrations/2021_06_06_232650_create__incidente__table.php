@@ -28,6 +28,7 @@ class CreateIncidenteTable extends Migration
             $table->unsignedBigInteger('Id_Status');
             $table->unsignedBigInteger('Id_UsuarioCliente');
             $table->unsignedBigInteger('Id_UsuarioSoporte');
+            $table->unsignedBigInteger('id_problema');
 
             $table->timestamps();
 
@@ -38,6 +39,7 @@ class CreateIncidenteTable extends Migration
             $table->foreign('Id_Status')->references('id')->on('Status');
             $table->foreign('Id_UsuarioCliente')->references('id')->on('Usuario_Cliente');
             $table->foreign('Id_UsuarioSoporte')->references('id')->on('Usuario_Soporte');
+            $table->foreign('id_problema')->references('id')->on('tipo_problema');
 
         });
     }

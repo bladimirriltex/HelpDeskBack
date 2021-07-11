@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->truncateTables([
             'users',
             'canal',
+            'tipo_problema',
             'cargo',
             'nivel_riesgo',
             'rol',
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
             'solucion',
         ]);
         $this->call(CanalSeeder::class);
+        $this->call(TipoProblemaSeeder::class);
         $this->call(CargoSeeder::class);
         $this->call(NivelRiesgoSeeder::class);
         $this->call(RolSeeder::class);

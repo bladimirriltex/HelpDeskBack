@@ -5,21 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cargo extends Model
+class Tipo_Problema extends Model
 {
     use HasFactory;
 
-    protected $table = 'cargo';
+    protected $table = 'tipo_problema';
 
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'Nombre',
-        'Descripcion'
+        'nombre',
+        'descripcion'
     ];
 
-    public function usuarios_soporte()
+    public function incidentes()
     {
-        return $this->hasMany(Usuario_Soporte::class, 'Id_Cargo' , 'id');
+        return $this->hasMany(Incidente::class, 'id_problema' , 'id');
     }
 }

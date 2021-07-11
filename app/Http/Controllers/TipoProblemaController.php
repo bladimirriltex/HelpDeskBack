@@ -2,26 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Canal;
+use App\Http\Resources\TipoProblemaResource;
+use App\Models\Tipo_Problema;
+use Exception;
 use Illuminate\Http\Request;
 
-use App\Http\Resources\CanalResource;
-use Exception;
-
-class CanalController extends Controller
+class TipoProblemaController extends Controller
 {
     public function index()
     {
-        return CanalResource::collection(Canal::all());
+        return TipoProblemaResource::collection(Tipo_Problema::all());
     }
 
     public function store(Request $request)
     {
         try
         {
-            $canal = $request->all();
+            $problema = $request->all();
 
-            Canal::create($canal);
+            Tipo_Problema::create($problema);
             return response()->json([
                 'res' => true,
                 'message' =>'Registro creado Correctamente'
@@ -36,18 +35,18 @@ class CanalController extends Controller
         }
     }
 
-    public function show(Canal $canal)
+    public function show(Tipo_Problema $tipo_Problema)
     {
-        return new CanalResource($canal);
+        return new TipoProblemaResource($tipo_Problema);
     }
 
-    public function update(Request $request, Canal $canal)
+    public function update(Request $request, Tipo_Problema $tipo_Problema)
     {
         try
         {
             $datos = $request->all();
 
-            $canal->update($datos);
+            $tipo_Problema->update($datos);
             return response()->json([
                 'res' => true,
                 'message' =>'Registro actualizado Correctamente'
@@ -61,11 +60,11 @@ class CanalController extends Controller
         }
     }
 
-    public function destroy(Canal $canal)
+    public function destroy(Tipo_Problema $tipo_Problema)
     {
         try
         {
-            $canal->delete();
+            $tipo_Problema->delete();
 
             return response()->json([
                 'message' => 'Success'

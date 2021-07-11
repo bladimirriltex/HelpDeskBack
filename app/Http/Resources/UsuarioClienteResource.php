@@ -22,6 +22,7 @@ class UsuarioClienteResource extends JsonResource
             'Rol' => $this->rol,
             'User' => $this->user,
             'Incidentes' => $this->incidentes,
+            'Cantidad_Incidentes' => $this->incidentes->count(),
         ];
     }
 }

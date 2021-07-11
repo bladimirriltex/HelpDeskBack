@@ -2,26 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Canal;
+use App\Http\Resources\VersionResource;
+use App\Models\Version;
+use Exception;
 use Illuminate\Http\Request;
 
-use App\Http\Resources\CanalResource;
-use Exception;
-
-class CanalController extends Controller
+class VersionController extends Controller
 {
     public function index()
     {
-        return CanalResource::collection(Canal::all());
+        return VersionResource::collection(Version::all());
     }
 
     public function store(Request $request)
     {
         try
         {
-            $canal = $request->all();
+            $version = $request->all();
 
-            Canal::create($canal);
+            Version::create($version);
             return response()->json([
                 'res' => true,
                 'message' =>'Registro creado Correctamente'
@@ -36,18 +35,18 @@ class CanalController extends Controller
         }
     }
 
-    public function show(Canal $canal)
+    public function show(Version $version)
     {
-        return new CanalResource($canal);
+        return new VersionResource($version);
     }
 
-    public function update(Request $request, Canal $canal)
+    public function update(Request $request, Version $version)
     {
         try
         {
             $datos = $request->all();
 
-            $canal->update($datos);
+            $version->update($datos);
             return response()->json([
                 'res' => true,
                 'message' =>'Registro actualizado Correctamente'
@@ -61,11 +60,11 @@ class CanalController extends Controller
         }
     }
 
-    public function destroy(Canal $canal)
+    public function destroy(Version $version)
     {
         try
         {
-            $canal->delete();
+            $version->delete();
 
             return response()->json([
                 'message' => 'Success'

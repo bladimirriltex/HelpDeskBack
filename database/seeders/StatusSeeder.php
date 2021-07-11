@@ -15,19 +15,35 @@ class StatusSeeder extends Seeder
     public function run()
     {
         Status::create([
-            'Nombre' => 'Pendiente',
+            'Nombre' => 'Clasificado',
         ]);
 
         Status::create([
-            'Nombre' => 'En Progreso',
+            'Nombre' => 'Asignado',
         ]);
 
         Status::create([
-            'Nombre' => 'Presencial',
+            'Nombre' => 'En diagnostico',
         ]);
 
         Status::create([
-            'Nombre' => 'Resuelto',
+            'Nombre' => 'Error',
+        ]);
+
+        Status::create([
+            'Nombre' => 'Error Conocido',
+        ]);
+
+        Status::create([
+            'Nombre' => 'En Solucion',
+        ]);
+
+        Status::create([
+            'Nombre' => 'Solucionado',
+        ]);
+
+        Status::create([
+            'Nombre' => 'Cerrado',
         ]);
     }
 }

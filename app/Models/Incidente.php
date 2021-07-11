@@ -25,7 +25,8 @@ class Incidente extends Model
         'Id_NivelRiesgo',
         'Id_Status',
         'Id_UsuarioCliente',
-        'Id_UsuarioSoporte'
+        'Id_UsuarioSoporte',
+        'id_problema'
     ];
 
     protected $casts = [
@@ -65,6 +66,11 @@ class Incidente extends Model
     public function usuario_soporte()
     {
         return $this->belongsTo(Usuario_Soporte::class, 'Id_UsuarioSoporte', 'id');
+    }
+
+    public function tipo_problema()
+    {
+        return $this->belongsTo(Tipo_Problema::class, 'id_problema', 'id');
     }
 
     public function soluciones()

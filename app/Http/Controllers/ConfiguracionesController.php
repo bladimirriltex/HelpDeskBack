@@ -2,26 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Canal;
+use App\Http\Resources\ConfiguracionesResource;
+use App\Models\Configuraciones;
+use Exception;
 use Illuminate\Http\Request;
 
-use App\Http\Resources\CanalResource;
-use Exception;
-
-class CanalController extends Controller
+class ConfiguracionesController extends Controller
 {
     public function index()
     {
-        return CanalResource::collection(Canal::all());
+        return ConfiguracionesResource::collection(Configuraciones::all());
     }
 
     public function store(Request $request)
     {
         try
         {
-            $canal = $request->all();
+            $configuraciones = $request->all();
 
-            Canal::create($canal);
+            Configuraciones::create($configuraciones);
             return response()->json([
                 'res' => true,
                 'message' =>'Registro creado Correctamente'
@@ -36,18 +35,18 @@ class CanalController extends Controller
         }
     }
 
-    public function show(Canal $canal)
+    public function show(Configuraciones $configuraciones)
     {
-        return new CanalResource($canal);
+        return new ConfiguracionesResource($configuraciones);
     }
 
-    public function update(Request $request, Canal $canal)
+    public function update(Request $request, Configuraciones $configuraciones)
     {
         try
         {
             $datos = $request->all();
 
-            $canal->update($datos);
+            $configuraciones->update($datos);
             return response()->json([
                 'res' => true,
                 'message' =>'Registro actualizado Correctamente'
@@ -61,11 +60,11 @@ class CanalController extends Controller
         }
     }
 
-    public function destroy(Canal $canal)
+    public function destroy(Configuraciones $configuraciones)
     {
         try
         {
-            $canal->delete();
+            $configuraciones->delete();
 
             return response()->json([
                 'message' => 'Success'

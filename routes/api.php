@@ -14,6 +14,10 @@ use App\Http\Controllers\TipoIncidenteController as TipoIncidente;
 use App\Http\Controllers\UsuarioClienteController as UsuarioCliente;
 use App\Http\Controllers\UsuarioSoporteController as UsuarioSoporte;
 use App\Http\Controllers\Nivel_RiesgoController as NivelRiesgo;
+use App\Http\Controllers\ConfiguracionesController as Configuraciones;
+use App\Http\Controllers\InventarioController as Inventario;
+use App\Http\Controllers\TipoProblemaController as Tipo_Problema;
+use App\Http\Controllers\VersionController as Version;
 use App\Http\Controllers\UserController as User;
 use Illuminate\Auth\AuthenticationException;
 
@@ -40,6 +44,7 @@ Route::get('totalIncidentes', [\App\Http\Controllers\IncidenteController::class,
 Route::get('sinresolverIncidentes', [\App\Http\Controllers\IncidenteController::class, 'sinresolverIncidentes']);
 Route::get('resueltosIncidentes', [\App\Http\Controllers\IncidenteController::class, 'resueltosIncidentes']);
 Route::get('deldiaIncidentes', [\App\Http\Controllers\IncidenteController::class, 'deldiaIncidentes']);
+Route::get('requerimiento', [\App\Http\Controllers\IncidenteController::class, 'RequeriminetoServicio']);
 
 Route::apiResource('canal', Canal::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
@@ -72,6 +77,18 @@ Route::apiResource('usuario_soporte', UsuarioSoporte::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::apiResource('nivel_riesgo', NivelRiesgo::class)
+    ->only(['index', 'store', 'show', 'update', 'destroy']);
+
+Route::apiResource('configuraciones', Configuraciones::class)
+    ->only(['index', 'store', 'show', 'update', 'destroy']);
+
+Route::apiResource('inventario', Inventario::class)
+    ->only(['index', 'store', 'show', 'update', 'destroy']);
+
+Route::apiResource('tipo_problema', Tipo_Problema::class)
+    ->only(['index', 'store', 'show', 'update', 'destroy']);
+
+Route::apiResource('version', Version::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::apiResource('user', User::class)

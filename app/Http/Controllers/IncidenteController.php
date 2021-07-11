@@ -13,7 +13,7 @@ class IncidenteController extends Controller
 {
     public function index()
     {
-        return IncidenteResource::collection(Incidente::all());
+        return IncidenteResource::collection(Incidente::orderBy('id', 'DESC')->get());
     }
 
     public function store(Request $request)
@@ -140,5 +140,10 @@ class IncidenteController extends Controller
              ->get();
 
              return $incidentes;
+    }
+
+    public function RequeriminetoServicio()
+    {
+        return IncidenteResource::collection(Incidente::orderBy('id', 'DESC')->get()->where('id_problema', 5));
     }
 }

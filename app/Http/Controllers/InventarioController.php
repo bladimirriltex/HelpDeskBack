@@ -2,26 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Canal;
+use App\Http\Resources\InventarioResource;
+use App\Models\Inventario;
+use Exception;
 use Illuminate\Http\Request;
 
-use App\Http\Resources\CanalResource;
-use Exception;
-
-class CanalController extends Controller
+class InventarioController extends Controller
 {
     public function index()
     {
-        return CanalResource::collection(Canal::all());
+        return InventarioResource::collection(Inventario::all());
     }
 
     public function store(Request $request)
     {
         try
         {
-            $canal = $request->all();
+            $inventario = $request->all();
 
-            Canal::create($canal);
+            Inventario::create($inventario);
             return response()->json([
                 'res' => true,
                 'message' =>'Registro creado Correctamente'
@@ -36,18 +35,18 @@ class CanalController extends Controller
         }
     }
 
-    public function show(Canal $canal)
+    public function show(Inventario $inventario)
     {
-        return new CanalResource($canal);
+        return new InventarioResource($inventario);
     }
 
-    public function update(Request $request, Canal $canal)
+    public function update(Request $request, Inventario $inventario)
     {
         try
         {
             $datos = $request->all();
 
-            $canal->update($datos);
+            $inventario->update($datos);
             return response()->json([
                 'res' => true,
                 'message' =>'Registro actualizado Correctamente'
@@ -61,11 +60,11 @@ class CanalController extends Controller
         }
     }
 
-    public function destroy(Canal $canal)
+    public function destroy(Inventario $inventario)
     {
         try
         {
-            $canal->delete();
+            $inventario->delete();
 
             return response()->json([
                 'message' => 'Success'
