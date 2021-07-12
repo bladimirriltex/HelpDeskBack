@@ -18,7 +18,8 @@ class InventarioResource extends JsonResource
             'id' => $this->id,
             'nombre' => $this->nombre,
             'ubicacion' => $this->ubicacion,
-            'usuario' => $this->nombre_usuario
+            'usuario' => $this->nombre_usuario,
+            'configuraciones' => $this->configuraciones
         ];
     }
 }

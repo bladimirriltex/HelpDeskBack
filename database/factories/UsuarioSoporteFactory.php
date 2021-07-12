@@ -26,6 +26,7 @@ class UsuarioSoporteFactory extends Factory
             'Apellidos' => $this->faker->lastName,
             'Email' => $this->faker->unique()->safeEmail,
             'Id_Cargo' => $this->faker->numberBetween(1, 3),
+            'Id_User' => $this->faker->unique()->numberBetween(1, 3),
         ];
     }
 }

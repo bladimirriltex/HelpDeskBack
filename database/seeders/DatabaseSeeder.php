@@ -32,7 +32,11 @@ class DatabaseSeeder extends Seeder
             'usuario_soporte',
             'incidente',
             'solucion',
+            'inventario',
+            'configuraciones',
+            'version'
         ]);
+        $this->call(UserSeeder::class);
         $this->call(CanalSeeder::class);
         $this->call(TipoProblemaSeeder::class);
         $this->call(CargoSeeder::class);
@@ -44,6 +48,10 @@ class DatabaseSeeder extends Seeder
         $this->call(UsuarioClienteSeeder::class);
         $this->call(UsuarioSoporteSeeder::class);
         $this->call(IncidenteSeeder::class);
+        //$this->call(SolucionSeeder::class);
+        $this->call(InventarioSeeder::class);
+        $this->call(ConfiguracionesSeeder::class);
+        $this->call(VersionSeeder::class);
     }
 
     public function truncateTables(array $tables)

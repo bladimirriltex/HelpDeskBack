@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Version;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 
-class UserFactory extends Factory
+class VersionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Version::class;
 
     /**
      * Define the model's default state.
@@ -23,8 +22,10 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'Login' => 'U'.$this->faker->unique()->numberBetween(1214104, 2014105),
-            'Password' => Hash::make('12345678'), // password
+            'nombre' => $this->faker->numerify('Version #.#.#'),
+            'descripcion' => $this->faker->text(500),
+            'configuracion' => $this->faker->text(500),
+            'id_servicio' => $this->faker->numberBetween(1, 9)
         ];
     }
 }

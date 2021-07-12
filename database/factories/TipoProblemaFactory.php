@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Tipo_Problema;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 
-class UserFactory extends Factory
+class TipoProblemaFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Tipo_Problema::class;
 
     /**
      * Define the model's default state.
@@ -23,8 +22,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'Login' => 'U'.$this->faker->unique()->numberBetween(1214104, 2014105),
-            'Password' => Hash::make('12345678'), // password
+            //
         ];
     }
 }

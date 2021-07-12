@@ -17,7 +17,7 @@ class ConfiguracionesResource extends JsonResource
         return [
             'id' => $this->id,
             'configuracion' => $this->configuracion,
-            'inventario' => $this->iventarios,
+            'inventario' => $this->inventario,
         ];
     }
 }

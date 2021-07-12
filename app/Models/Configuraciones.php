@@ -18,7 +18,7 @@ class Configuraciones extends Model
         'id_inventario'
     ];
 
-    public function inventarios()
+    public function inventario()
     {
         return $this->belongsTo(Inventario::class, 'id_inventario', 'id');
     }

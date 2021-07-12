@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Version;
 use Illuminate\Database\Seeder;
-use App\Models\User;
 
-class UserSeeder extends Seeder
+class VersionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->count(8)->create();
+        Version::factory()->count(30)->create();
     }
 }

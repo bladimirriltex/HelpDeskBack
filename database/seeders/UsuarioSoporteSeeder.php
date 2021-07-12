@@ -19,6 +19,7 @@ class UsuarioSoporteSeeder extends Seeder
             'Apellido' => 'Aliaga Torres',
             'Email' => 'marcos_at@utp.edu.pe',
             'Id_Cargo' => 1,
+            'Id_User' => 1,
         ]);
 
         Usuario_Soporte::create([
@@ -26,6 +27,7 @@ class UsuarioSoporteSeeder extends Seeder
             'Apellido' => 'Lopez Zuñiga',
             'Email' => 'andrea_lz@utp.edu.pe',
             'Id_Cargo' => 2,
+            'Id_User' => 2,
         ]);
 
         Usuario_Soporte::create([
@@ -33,6 +35,7 @@ class UsuarioSoporteSeeder extends Seeder
             'Apellido' => 'Chocacno Gomez',
             'Email' => 'eduardo_cg@utp.edu.pe',
             'Id_Cargo' => 3,
+            'Id_User' => 3,
         ]);
     }
 }

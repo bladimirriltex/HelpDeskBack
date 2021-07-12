@@ -26,6 +26,7 @@ class Usuario_ClienteFactory extends Factory
             'Apellido' => $this->faker->lastName,
             'Email' => $this->faker->unique()->safeEmail,
             'Id_Rol' => $this->faker->numberBetween(1, 4),
+            'Id_User' => $this->faker->unique()->numberBetween(4, 8),
         ];
     }
 }
