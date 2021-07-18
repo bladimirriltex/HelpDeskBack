@@ -26,7 +26,8 @@ class Incidente extends Model
         'Id_Status',
         'Id_UsuarioCliente',
         'Id_UsuarioSoporte',
-        'id_problema'
+        'id_problema',
+        'id_solucion'
     ];
 
     protected $casts = [
@@ -73,8 +74,8 @@ class Incidente extends Model
         return $this->belongsTo(Tipo_Problema::class, 'id_problema', 'id');
     }
 
-    public function soluciones()
+    public function solucion()
     {
-        return $this->hasMany(Solucion::class, 'Id_Incidente' , 'id');
+        return $this->belongsTo(Solucion::class, 'id_solucion' , 'id');
     }
 }

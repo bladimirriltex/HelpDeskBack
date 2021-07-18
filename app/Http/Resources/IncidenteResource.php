@@ -30,7 +30,8 @@ class IncidenteResource extends JsonResource
             'Status' => $this-> status,
             'Usuario_Cliente' => $this-> usuario_cliente,
             'Usuario_Soporte' => $this-> usuario_soporte,
-            'Tipo_Problema' => $this-> tipo_problema
+            'Tipo_Problema' => $this-> tipo_problema,
+            'Solucion' => $this-> solucion
         ];
     }
 }

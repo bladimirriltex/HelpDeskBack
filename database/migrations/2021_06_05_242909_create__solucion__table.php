@@ -17,11 +17,7 @@ class CreateSolucionTable extends Migration
             $table->id();
             $table->string('Nombre')->unique();
             $table->text('Descripcion');
-            $table->dateTime('Fecha');
-            $table->unsignedBigInteger('Id_Incidente');
             $table->timestamps();
-
-            $table->foreign('Id_Incidente')->references('id')->on('Incidente');
         });
     }
 

@@ -22,7 +22,8 @@ class SolucionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'Nombre' => $this->faker->sentence(),
+            'Descripcion' => $this->faker->text(500),
         ];
     }
 }

@@ -15,7 +15,7 @@ class CreateVersionTable extends Migration
     {
         Schema::create('version', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre')->unique();
+            $table->string('nombre');
             $table->text('descripcion');
             $table->text('configuracion');
             $table->unsignedBigInteger('id_servicio');

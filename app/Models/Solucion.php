@@ -14,12 +14,10 @@ class Solucion extends Model
     protected $fillable = [
         'Nombre',
         'Descripcion',
-        'Fecha',
-        'Id_Incidente'
     ];
 
-    public function incidente()
+    public function incidentes()
     {
-        return $this->belongsTo(Incidente::class, 'Id_Incidente', 'id');
+        return $this->hasMany(Incidente::class, 'id_solucion', 'id');
     }
 }

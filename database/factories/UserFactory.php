@@ -24,7 +24,7 @@ class UserFactory extends Factory
     {
         return [
             'Login' => 'U'.$this->faker->unique()->numberBetween(1214104, 2014105),
-            'Password' => Hash::make('12345678'), // password
+            'Password' => Hash::make('1234'), // password
         ];
     }
 }

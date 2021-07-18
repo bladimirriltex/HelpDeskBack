@@ -14,6 +14,6 @@ class SolucionSeeder extends Seeder
      */
     public function run()
     {
-        
+        Solucion::factory()->count(5)->create();
     }
 }

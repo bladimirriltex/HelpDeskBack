@@ -32,6 +32,7 @@ class IncidenteFactory extends Factory
             'Id_UsuarioCliente' => $this->faker->numberBetween(1, 5),
             'Id_UsuarioSoporte' => $this->faker->numberBetween(1, 3),
             'id_problema' => $this->faker->numberBetween(1, 5),
+            'id_solucion' => $this->faker->numberBetween(1, 5),
         ];
     }
 }

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             'canal',
             'tipo_problema',
             'cargo',
+            'solucion',
             'nivel_riesgo',
             'rol',
             'servicio',
@@ -31,7 +32,6 @@ class DatabaseSeeder extends Seeder
             'usuario_cliente',
             'usuario_soporte',
             'incidente',
-            'solucion',
             'inventario',
             'configuraciones',
             'version'
@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CanalSeeder::class);
         $this->call(TipoProblemaSeeder::class);
         $this->call(CargoSeeder::class);
+        $this->call(SolucionSeeder::class);
         $this->call(NivelRiesgoSeeder::class);
         $this->call(RolSeeder::class);
         $this->call(ServicioSeeder::class);
@@ -48,7 +49,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UsuarioClienteSeeder::class);
         $this->call(UsuarioSoporteSeeder::class);
         $this->call(IncidenteSeeder::class);
-        //$this->call(SolucionSeeder::class);
         $this->call(InventarioSeeder::class);
         $this->call(ConfiguracionesSeeder::class);
         $this->call(VersionSeeder::class);
