@@ -19,7 +19,7 @@ class IncidenteResource extends JsonResource
             'id' => $this->id,
             'Nombre' => $this->Nombre,
             'Fecha_Inicio' => date('d M Y h:m:s' , strtotime($this->created_at)),
-            'Fecha_Fin' => $this-> Fecha_Fin,
+            'Fecha_Fin' => date('d M Y h:m:s' , strtotime($this->updated_at)),
             'Descripcion' => $this-> Descripcion,
             'Respuesta' => $this-> Respuesta,
             'Archivo' => $this-> Archivo,
