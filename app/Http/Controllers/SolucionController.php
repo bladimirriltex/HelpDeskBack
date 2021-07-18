@@ -21,9 +21,12 @@ class SolucionController extends Controller
             $solucion = $request->all();
             Solucion::create($solucion);
 
+            $solucion = Solucion::latest('id')->first();
+
             return response()->json([
                 'res' => true,
-                'message' =>'Registro creado Correctamente'
+                'message' =>'Registro creado Correctamente',
+                'id' => $solucion->id
             ],200);
 
         }catch(Exception $e){
