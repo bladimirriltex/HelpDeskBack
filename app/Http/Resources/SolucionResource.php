@@ -18,7 +18,7 @@ class SolucionResource extends JsonResource
             'id' => $this->id,
             'Nombre' => $this->Nombre,
             'Descripcion' => $this->Descripcion,
-            'Fecha' => date('d M Y h:m:s' , strtotime($this->created_at)),
+            'Fecha' => date('d M Y H:i:s' , strtotime($this->created_at)),
             'Incidente' => $this->incidentes,
         ];
     }
