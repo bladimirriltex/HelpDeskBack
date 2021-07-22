@@ -113,7 +113,7 @@ class IncidenteController extends Controller
     {
         $incidentes = DB::table('incidente')
              ->select(DB::raw('count(*) as sinresolverIncidentes'))
-             ->whereIn('Id_Status', [1, 2])
+             ->whereIn('Id_Status', [1, 2,3,4,5])
 
              ->get();
 
@@ -124,7 +124,7 @@ class IncidenteController extends Controller
     {
         $incidentes = DB::table('incidente')
              ->select(DB::raw('count(*) as resueltosIncidentes'))
-             ->where('Id_Status', '=', 4)
+             ->where('Id_Status', '=', 7)
 
              ->get();
 
